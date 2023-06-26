@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
@@ -73,6 +74,41 @@ public class Methods {
         String randomEmail = generatedString+dom;
         return randomEmail;
     }
+    public static String randomEmailnodap(){
+        int leftLimit = 97; // letter 'a'
+        int rightLimit = 122; // letter 'z'
+        int targetStringLength = 10;
+        Random random = new Random();
+
+        String generatedString = random.ints(leftLimit, rightLimit + 1)
+                .limit(targetStringLength)
+                .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+                .toString();
+        String dom = "gmail.com";
+        String randomEmail = generatedString+dom;
+        return randomEmail;
+    }
+    public static String randomEmailNoDomain(){
+        int leftLimit = 97; // letter 'a'
+        int rightLimit = 122; // letter 'z'
+        int targetStringLength = 10;
+        Random random = new Random();
+
+        String generatedString = random.ints(leftLimit, rightLimit + 1)
+                .limit(targetStringLength)
+                .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+                .toString();
+        String dom = "@gmailcom";
+        String randomEmail = generatedString+dom;
+        return randomEmail;
+    }
+ static boolean isDisplayed(String xp) {
+        try {
+            return driver.findElement(By.xpath(xp)).isDisplayed();
+        } catch (Exception e){
+            return false;
+        }
+    }
 
     public static String randomName(){
         int leftLimit = 97; // letter 'a'
@@ -91,6 +127,12 @@ public class Methods {
     public static int RandomPhone(){
         int randomNum = (int)(Math.random() * 101);
         return randomNum;
+    }
+    public static void AssertForTxt(String tl, String expected) throws InterruptedException {
+        waitUntil(tl);
+        WebElement element = driver.findElement(By.xpath(tl));
+        Assert.assertEquals(element.getText(),expected);
+        System.out.println(element.getText());
     }
     @AfterClass(alwaysRun = true)
     public static void CloseBrauser(){

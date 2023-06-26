@@ -10,6 +10,11 @@ public class Xpath {
     public static final String InputPhone ="//input[@id='registerUserPhone']";
     public static final String InputEmail ="//input[@id='registerUserEmail']";
     public static final String InputPassword ="//input[@id='registerUserPassword']";
-    public static final String SomeGetTXT ="/html/body/app-root/div/div/rz-main-page/div/main/rz-main-page-content/rz-goods-sections/section[2]/rz-goods-section/h2";
+    public static final String ErrorNameTXT ="/html/body/app-root/rz-single-modal-window/div[3]/div[2]/rz-user-identification/rz-register/div/form/fieldset/div[1]/form-error/p";
+    public static final String ErrorSernameTXT ="/html/body/app-root/rz-single-modal-window/div[3]/div[2]/rz-user-identification/rz-register/div/form/fieldset/div[2]/form-error/p";
+    public static final String ErrorPhoneTXT ="/html/body/app-root/rz-single-modal-window/div[3]/div[2]/rz-user-identification/rz-register/div/form/fieldset/div[3]/form-error/p";
+    public static final String ErrorEmailTXT ="/html/body/app-root/rz-single-modal-window/div[3]/div[2]/rz-user-identification/rz-register/div/form/fieldset/div[4]/form-error/p";
+    public static final String ErrorPassTXT ="//*[contains(@class,'errors-list__icon errors-list__icon--error ng-star-inserted')]";
+    public static final String SuccesTXT ="/html/body/app-root/rz-single-modal-window/div[3]/div[2]/rz-user-identification/rz-register-phone/div/form/h4";
 
 }

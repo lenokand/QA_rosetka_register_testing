@@ -1,19 +1,24 @@
 import org.testng.annotations.Test;
 
+import java.awt.*;
+
 import static xpath.Xpath.*;
 
-public class Main extends Methods{
-    @Test(description = "first test")
-    public static void FirstTest() throws InterruptedException {
+public class Negativ3 extends Methods{
+    @Test(description = "second test")
+    public static void SecondTest() throws InterruptedException, AWTException {
         ClickButton(ButonPeople);
         ClickButton(ButonRegister);
-        SendKeys(InputName, "Маша");
+        SendKeys(InputName, "!№;%?");
         SendKeys(InputSurname, "Иванова");
         SendKeys(InputPhone, "0951234567");
         SendKeys(InputEmail, randomEmail());
         SendKeys(InputPassword, "Qwerty123");
         ClickButton(ButonSubmit);
-        AssertForTxt(SuccesTXT, "Підтвердження номера телефону");
+        AssertForTxt(ErrorNameTXT, "Введіть своє ім'я кирилицею");
+
+
+
         WaitLoadPage(3000);
     }
 }

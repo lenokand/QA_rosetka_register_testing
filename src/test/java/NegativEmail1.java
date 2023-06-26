@@ -2,7 +2,7 @@ import org.testng.annotations.Test;
 
 import static xpath.Xpath.*;
 
-public class Main extends Methods{
+public class NegativEmail1 extends Methods{
     @Test(description = "first test")
     public static void FirstTest() throws InterruptedException {
         ClickButton(ButonPeople);
@@ -10,10 +10,10 @@ public class Main extends Methods{
         SendKeys(InputName, "Маша");
         SendKeys(InputSurname, "Иванова");
         SendKeys(InputPhone, "0951234567");
-        SendKeys(InputEmail, randomEmail());
+        SendKeys(InputEmail, randomEmailnodap());
         SendKeys(InputPassword, "Qwerty123");
         ClickButton(ButonSubmit);
-        AssertForTxt(SuccesTXT, "Підтвердження номера телефону");
+        AssertForTxt(ErrorEmailTXT, "Введіть свою ел. пошту");
         WaitLoadPage(3000);
     }
 }
